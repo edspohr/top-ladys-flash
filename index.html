@@ -17,35 +17,36 @@
             font-family: 'Playfair Display', serif;
         }
         /* Definiendo los colores del tema en las clases de Tailwind */
-        .bg-brand-pink { background-color: #FFF8F7; }
-        .bg-brand-gray { background-color: #1a1a1a; }
-        .text-brand-gold { color: #D4AF37; }
-        .border-brand-gold { border-color: #D4AF37; }
-        .ring-brand-gold { --tw-ring-color: #D4AF37; }
-        .btn-gold {
-            background: linear-gradient(145deg, #E6C66E, #D4AF37);
-            color: #1a1a1a;
+        .bg-brand-pink-light { background-color: #FFF8F7; }
+        .bg-brand-rose-gold { background-color: #4c2a32; } /* Reemplaza el gris oscuro */
+        .text-brand-pink-accent { color: #E68A99; } /* Reemplaza el dorado */
+        .border-brand-pink-accent { border-color: #E68A99; }
+        .ring-brand-pink-accent { --tw-ring-color: #E68A99; }
+        
+        .btn-rose {
+            background: linear-gradient(145deg, #E68A99, #D96C7E);
+            color: #FFF;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(230, 138, 153, 0.3);
         }
-        .btn-gold:hover {
+        .btn-rose:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 6px 20px rgba(230, 138, 153, 0.5);
         }
         .timer-box {
-            background-color: rgba(26, 26, 26, 0.8);
+            background-color: rgba(76, 42, 50, 0.8); /* Rose gold oscuro con opacidad */
             backdrop-filter: blur(5px);
         }
         
         /* Animaciones y Efectos */
         @keyframes subtle-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3), 0 0 5px rgba(212, 175, 55, 0.2); }
-            50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 0 0 10px rgba(212, 175, 55, 0.4); }
+            0%, 100% { box-shadow: 0 0 15px rgba(230, 138, 153, 0.3), 0 0 5px rgba(230, 138, 153, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(230, 138, 153, 0.5), 0 0 10px rgba(230, 138, 153, 0.4); }
         }
         .active-auction-glow {
             animation: subtle-glow 3s infinite ease-in-out;
-            border: 2px solid #D4AF37;
+            border: 2px solid #E68A99;
         }
 
         @keyframes text-gradient {
@@ -54,36 +55,51 @@
             100% { background-position: 0% 50%; }
         }
         .animated-gradient-text {
-            background: linear-gradient(90deg, #D4AF37, #E6C66E, #D4AF37);
+            background: linear-gradient(90deg, #E68A99, #f0b8c0, #E68A99);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: text-gradient 5s ease infinite;
         }
 
-        /* Animación de aparición en scroll */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        /* Botón de WhatsApp Mejorado */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 138, 153, 0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(230, 138, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 138, 153, 0); }
         }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(145deg, #E68A99, #D96C7E);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(76, 42, 50, 0.3);
+            z-index: 100;
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            animation-play-state: paused;
         }
     </style>
 </head>
-<body class="bg-brand-pink text-brand-gray">
+<body class="bg-brand-pink-light text-brand-rose-gold">
 
     <!-- Encabezado y Navegación -->
-    <header class="bg-brand-gray text-white shadow-lg sticky top-0 z-50">
+    <header class="bg-brand-rose-gold text-white shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-playfair tracking-wider">Top Ladys <span class="text-brand-gold">Flash</span></h1>
+            <h1 class="text-3xl font-playfair tracking-wider">Top Ladys <span class="text-brand-pink-accent">Flash</span></h1>
             <div class="flex items-center space-x-6">
-                <a href="#remates" class="hover:text-brand-gold transition">Remates</a>
-                <a href="#how-it-works" class="hover:text-brand-gold transition">¿Cómo funciona?</a>
+                <a href="#remates" class="hover:text-brand-pink-accent transition">Remates</a>
+                <a href="#how-it-works" class="hover:text-brand-pink-accent transition">¿Cómo funciona?</a>
                 <button class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-brand-gold transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-brand-pink-accent transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                 </button>
@@ -94,44 +110,107 @@
     <!-- Sección Principal (Hero) -->
     <main class="container mx-auto px-6 py-16">
         <div class="text-center">
-            <h2 class="text-5xl md:text-7xl font-playfair font-bold text-brand-gray leading-tight">Exclusividad al mejor <span class="animated-gradient-text">precio</span>.</h2>
+            <h2 class="text-5xl md:text-7xl font-playfair font-bold text-brand-rose-gold leading-tight">Exclusividad al mejor <span class="animated-gradient-text">precio</span>.</h2>
             <p class="mt-4 text-lg max-w-2xl mx-auto text-gray-600">Oferta por tiempo limitado en productos de lujo. La emoción de un remate, la comodidad de tu hogar.</p>
         </div>
 
-        <!-- Cómo Funciona -->
-        <section id="how-it-works" class="mt-24 fade-in-section">
-            <h3 class="text-4xl font-playfair font-bold text-center mb-12">¿Cómo <span class="text-brand-gold">Funciona</span>?</h3>
+        <!-- Cómo Funciona (con Mockups) -->
+        <section id="how-it-works" class="mt-24">
+            <h3 class="text-4xl font-playfair font-bold text-center mb-16">¿Cómo <span class="text-brand-pink-accent">Funciona</span>?</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-2 border-brand-gold mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                <!-- Paso 1 -->
+                <div class="flex flex-col items-center p-4">
+                    <div class="relative bg-white rounded-full p-6 shadow-lg border-2 border-brand-pink-accent mb-4">
+                        <span class="absolute -top-3 -right-3 flex h-8 w-8">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-8 w-8 bg-brand-pink-accent justify-center items-center text-white font-bold text-lg">1</span>
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-pink-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
                     </div>
-                    <h4 class="text-xl font-semibold font-playfair mb-2">1. Descubre</h4>
-                    <p class="text-gray-600">Explora los próximos remates y regístrate para recibir notificaciones cuando estén por comenzar.</p>
+                    <h4 class="text-xl font-semibold font-playfair mb-2">Descubre y Prepárate</h4>
+                    <p class="text-gray-600 mb-4">Explora los remates y activa la notificación para no perderte el inicio.</p>
+                    <div class="bg-white rounded-lg shadow-md p-3 w-full max-w-xs border">
+                        <img src="https://placehold.co/300x200/4c2a32/E68A99?text=Producto" alt="Mockup Producto" class="rounded-md mb-2">
+                        <p class="font-semibold text-sm">Reloj 'Prestige'</p>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="text-xs text-gray-500">Inicia en: 02d:10h:15m</span>
+                            <button class="text-xs bg-gray-200 text-gray-800 rounded-full px-2 py-1">Notificarme</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-2 border-brand-gold mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M3.33 8.414a5.5 5.5 0 018.105-1.488L13.5 9.5l-1.5 1.5-2.06-2.06a3.5 3.5 0 00-4.95 4.95l5.228 5.228a1 1 0 001.414 0l2.828-2.828a1 1 0 000-1.414l-2.02-2.02a.5.5 0 01.707-.707l2.121 2.12a3 3 0 010 4.242l-2.828 2.829a3 3 0 01-4.242 0L3.33 12.657a5.5 5.5 0 010-7.778z" /></svg>
+                <!-- Paso 2 -->
+                <div class="flex flex-col items-center p-4">
+                     <div class="relative bg-white rounded-full p-6 shadow-lg border-2 border-brand-pink-accent mb-4">
+                        <span class="absolute -top-3 -right-3 flex h-8 w-8"><span class="relative inline-flex rounded-full h-8 w-8 bg-brand-pink-accent justify-center items-center text-white font-bold text-lg">2</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-pink-accent" viewBox="0 0 20 20" fill="currentColor"><path d="M3.33 8.414a5.5 5.5 0 018.105-1.488L13.5 9.5l-1.5 1.5-2.06-2.06a3.5 3.5 0 00-4.95 4.95l5.228 5.228a1 1 0 001.414 0l2.828-2.828a1 1 0 000-1.414l-2.02-2.02a.5.5 0 01.707-.707l2.121 2.12a3 3 0 010 4.242l-2.828 2.829a3 3 0 01-4.242 0L3.33 12.657a5.5 5.5 0 010-7.778z" /></svg>
                     </div>
-                    <h4 class="text-xl font-semibold font-playfair mb-2">2. Oferta</h4>
-                    <p class="text-gray-600">Cuando el remate esté activo, realiza tu oferta. ¡Supera la puja más alta para liderar!</p>
+                    <h4 class="text-xl font-semibold font-playfair mb-2">Realiza tu Oferta</h4>
+                    <p class="text-gray-600 mb-4">Cuando el remate esté activo, ingresa tu mejor oferta para liderar la puja.</p>
+                     <div class="bg-white rounded-lg shadow-md p-3 w-full max-w-xs border">
+                        <p class="text-xs text-left text-gray-500">Oferta actual: <span class="font-bold text-green-600">$185.000</span></p>
+                        <div class="mt-2 flex">
+                            <input type="text" placeholder="$190.000 o más" class="text-sm w-full border-gray-300 rounded-l-md p-2 focus:ring-1 focus:ring-brand-pink-accent focus:border-brand-pink-accent">
+                            <button class="btn-rose px-4 rounded-r-md text-sm">Ofertar</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-2 border-brand-gold mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-gold" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 5a3 3 0 015.252-2.121l.738.737a1 1 0 11-1.414 1.414l-.737-.737A1 1 0 009 5H5zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-2 2a1 1 0 100 2 1 1 0 000-2zM8 9a1 1 0 11-2 0 1 1 0 012 0zm2 2a1 1 0 100 2 1 1 0 000-2zM5 12a1 1 0 11-2 0 1 1 0 012 0zm2 2a1 1 0 100 2 1 1 0 000-2zM9 14a1 1 0 100 2 1 1 0 000-2zm4-3a1 1 0 11-2 0 1 1 0 012 0zm2 2a1 1 0 100 2 1 1 0 000-2zM5.5 8a.5.5 0 100-1 .5.5 0 000 1zM14 5a.5.5 0 11-1 0 .5.5 0 011 0z" clip-rule="evenodd" /></svg>
+                <!-- Paso 3 -->
+                <div class="flex flex-col items-center p-4">
+                     <div class="relative bg-white rounded-full p-6 shadow-lg border-2 border-brand-pink-accent mb-4">
+                        <span class="absolute -top-3 -right-3 flex h-8 w-8"><span class="relative inline-flex rounded-full h-8 w-8 bg-brand-pink-accent justify-center items-center text-white font-bold text-lg">3</span></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-brand-pink-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 5a3 3 0 015.252-2.121l.738.737a1 1 0 11-1.414 1.414l-.737-.737A1 1 0 009 5H5zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-2 2a1 1 0 100 2 1 1 0 000-2zM8 9a1 1 0 11-2 0 1 1 0 012 0zm2 2a1 1 0 100 2 1 1 0 000-2zM5 12a1 1 0 11-2 0 1 1 0 012 0zm2 2a1 1 0 100 2 1 1 0 000-2zM9 14a1 1 0 100 2 1 1 0 000-2zm4-3a1 1 0 11-2 0 1 1 0 012 0zm2 2a1 1 0 100 2 1 1 0 000-2zM5.5 8a.5.5 0 100-1 .5.5 0 000 1zM14 5a.5.5 0 11-1 0 .5.5 0 011 0z" clip-rule="evenodd" /></svg>
                     </div>
-                    <h4 class="text-xl font-semibold font-playfair mb-2">3. Gana</h4>
-                    <p class="text-gray-600">Si tu oferta es la más alta al final, ¡el producto es tuyo! Tienes un tiempo limitado para concretar el pago.</p>
+                    <h4 class="text-xl font-semibold font-playfair mb-2">Gana y Disfruta</h4>
+                    <p class="text-gray-600 mb-4">Si tu oferta es la más alta al final, ¡el producto es tuyo! Concreta el pago y recíbelo.</p>
+                     <div class="bg-green-50 rounded-lg shadow-md p-4 w-full max-w-xs border border-green-200">
+                        <p class="font-bold text-green-800 text-center">¡Felicitaciones!</p>
+                        <p class="text-sm text-green-700 text-center mt-1">Ganaste el remate. Tienes 15:00 para completar tu pago.</p>
+                        <button class="w-full mt-3 bg-green-600 text-white py-2 rounded-md hover:bg-green-700 text-sm">Pagar ahora</button>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Nuestras Marcas -->
+        <section id="brands" class="mt-24">
+            <h3 class="text-4xl font-playfair font-bold text-center mb-12">Nuestras <span class="text-brand-pink-accent">Marcas</span></h3>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center grayscale opacity-60">
+                    <div class="font-playfair text-3xl text-center text-gray-400">DIOR</div>
+                    <div class="font-serif text-3xl text-center text-gray-400">ZARA</div>
+                    <div class="font-playfair text-3xl text-center text-gray-400">CHANEL</div>
+                    <div class="font-sans text-3xl font-bold text-center text-gray-400">MAC</div>
+                    <div class="font-serif text-3xl text-center text-gray-400">GUCCI</div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Sección de Próximos Remates -->
-        <section id="remates" class="mt-24 fade-in-section">
-            <h3 class="text-4xl font-playfair font-bold text-center mb-12">Remates <span class="text-brand-gold">Activos y Próximos</span></h3>
+        <section id="remates" class="mt-24">
+            <h3 class="text-4xl font-playfair font-bold text-center mb-12">Remates <span class="text-brand-pink-accent">Activos y Próximos</span></h3>
             
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Las tarjetas de productos se insertarán aquí dinámicamente -->
+            </div>
+        </section>
+        
+        <!-- Clientes Satisfechos -->
+        <section id="testimonials" class="mt-24">
+            <h3 class="text-4xl font-playfair font-bold text-center mb-12">Clientes <span class="text-brand-pink-accent">Satisfechos</span></h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-600 italic">"¡Increíble! Conseguí una cartera que quería hace meses a un precio soñado. El proceso fue súper emocionante y transparente. 100% recomendado."</p>
+                    <p class="mt-4 font-semibold text-brand-rose-gold">- Camila R.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-600 italic">"Al principio dudaba, pero la plataforma es muy segura y fácil de usar. Ya gané dos remates y los productos llegaron perfectos. ¡Soy fan!"</p>
+                    <p class="mt-4 font-semibold text-brand-rose-gold">- Valentina G.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-600 italic">"La mejor forma de comprar artículos de lujo sin culpa. Los precios son inmejorables y la emoción de la subasta es adictiva. Excelente servicio."</p>
+                    <p class="mt-4 font-semibold text-brand-rose-gold">- Sofía A.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -148,8 +227,12 @@
         </div>
     </div>
 
-
-    <footer class="bg-brand-gray text-white mt-20 py-10">
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/56912345678?text=Hola!%20Tengo%20una%20consulta%20sobre%20Top%20Ladys%20Flash" class="whatsapp-float flex items-center justify-center" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-7 h-7" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-27.2l-6.9-4.1-72.3 19L49 353.5l-4.4-7.3C26.1 316 16 280.1 16 242.9c0-114.2 92.6-206.8 206.8-206.8 56.4 0 109.2 22 148.1 60.9s60.9 91.7 60.9 148.1c-.1 114.2-92.8 206.8-207 206.8zM223.9 64C128.5 64 50 142.5 50 237.9c0 33.3 8.5 65.5 24.6 93.2l-26.6 87.9 90-23.6c26.9 15.2 57.5 23.3 88.5 23.3 95.4 0 172.1-76.7 172.1-172.1S319.3 64 223.9 64zm91.5 125.4c-4.2-2.1-24.8-12.2-28.7-13.6-3.9-1.4-6.7-2.1-9.5 2.1-2.8 4.2-10.8 13.6-13.3 16.4-2.5 2.8-5 3.1-9.2 1.1-4.2-2.1-17.7-6.5-33.7-20.8-12.5-11.1-20.9-24.8-23.4-29-2.5-4.2-.3-6.5 1.8-8.6 2-2 4.2-5.3 6.3-7.9 2.1-2.6 2.8-4.2 4.2-7.1 1.4-2.8.7-5.3-0.4-7.3s-9.5-22.9-13-31.3c-3.4-8.3-6.9-7.2-9.5-7.3-2.5-.1-5.3-.1-7.8-.1-2.5 0-6.7.7-10.2 4.2-3.5 3.5-13.3 13-13.3 31.7 0 18.7 13.6 36.8 15.5 39.3 1.9 2.5 26.6 40.8 64.5 56.8 37.9 16 37.9 10.7 44.7 10.1 6.9-.6 24.8-10.1 28.3-19.8 3.5-9.7 3.5-18 2.4-19.8-1-1.8-3.9-2.8-8.1-5z"/></svg>
+    </a>
+    
+    <footer class="bg-brand-rose-gold text-white mt-20 py-10">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2025 Top Ladys Flash. Todos los derechos reservados.</p>
         </div>
@@ -161,7 +244,7 @@
                 id: 1,
                 name: "Cartera de Lujo 'Elegance'",
                 brand: "Marca Exclusiva",
-                image: "https://placehold.co/600x600/1a1a1a/D4AF37?text=Cartera",
+                image: "https://placehold.co/600x600/4c2a32/ffffff?text=Cartera",
                 description: "Una pieza icónica de cuero genuino, perfecta para cualquier ocasión. Su diseño atemporal y acabados dorados la convierten en un objeto de deseo.",
                 startTime: new Date(Date.now() - 1 * 60 * 60 * 1000), // Inició hace 1 hora
                 endTime: new Date(Date.now() + 1 * 60 * 60 * 1000), // Termina en 1 hora
@@ -176,7 +259,7 @@
                 brand: "Belleza Pura",
                 isPackage: true,
                 items: ["Base Líquida", "Paleta de Sombras", "Labial Mate"],
-                image: "https://placehold.co/600x600/1a1a1a/D4AF37?text=Maquillaje",
+                image: "https://placehold.co/600x600/4c2a32/ffffff?text=Maquillaje",
                 description: "Todo lo que necesitas para un look deslumbrante. Este paquete incluye nuestros productos más vendidos para lograr un acabado profesional.",
                 startTime: new Date(Date.now() + 26 * 60 * 60 * 1000), // Inicia en 26 horas
                 endTime: new Date(Date.now() + 28 * 60 * 60 * 1000),
@@ -187,7 +270,7 @@
                 id: 3,
                 name: "Reloj 'Prestige' Dorado",
                 brand: "Tiempo & Estilo",
-                image: "https://placehold.co/600x600/1a1a1a/D4AF37?text=Reloj",
+                image: "https://placehold.co/600x600/4c2a32/ffffff?text=Reloj",
                 description: "Un reloj sofisticado con maquinaria suiza y un baño de oro de 18k. El accesorio definitivo que combina funcionalidad y lujo.",
                 startTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000), // Inicia en 2 días
                 endTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 2 * 60 * 60 * 1000),
@@ -238,7 +321,7 @@
                     const timeRemaining = product.startTime.getTime() - Date.now();
                     const time = formatTime(timeRemaining);
                     timerHtml = `
-                        <p class="text-sm uppercase tracking-widest text-brand-gold">Inicia en:</p>
+                        <p class="text-sm uppercase tracking-widest text-brand-pink-accent">Inicia en:</p>
                         <div id="timer-${product.id}" class="text-2xl font-semibold flex justify-center space-x-2">
                              <span>${time.days}d</span>:<span>${time.hours}h</span>:<span>${time.minutes}m</span>
                         </div>`;
@@ -265,7 +348,7 @@
                             </div>
                             <div class="flex justify-between items-center mt-2">
                                 <span class="text-gray-600 font-semibold">Precio inicial:</span>
-                                <span class="text-2xl font-semibold text-brand-gold">$${product.startPrice.toLocaleString('es-CL')}</span>
+                                <span class="text-2xl font-semibold text-brand-pink-accent">$${product.startPrice.toLocaleString('es-CL')}</span>
                             </div>
                             `}
                         </div>
@@ -337,9 +420,9 @@
                              <label for="bid-amount" class="block text-sm font-medium text-gray-700">Tu oferta (mín. $${(product.currentBid + 1000).toLocaleString('es-CL')})</label>
                              <div class="mt-1 flex rounded-md shadow-sm">
                                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">$</span>
-                                <input type="number" name="bid-amount" id="bid-amount" class="flex-1 block w-full rounded-none rounded-r-md border-gray-300 focus:ring-brand-gold focus:border-brand-gold sm:text-sm p-3" placeholder="${product.currentBid + 1000}">
+                                <input type="number" name="bid-amount" id="bid-amount" class="flex-1 block w-full rounded-none rounded-r-md border-gray-300 focus:ring-brand-pink-accent focus:border-brand-pink-accent sm:text-sm p-3" placeholder="${product.currentBid + 1000}">
                              </div>
-                             <button class="w-full btn-gold py-3 rounded-lg text-lg mt-4">Ofertar Ahora</button>
+                             <button class="w-full btn-rose py-3 rounded-lg text-lg mt-4">Ofertar Ahora</button>
                         </div>
                     </div>
                 </div>`;
@@ -356,10 +439,10 @@
                         <p class="mt-4 text-gray-700">${product.description}</p>
                         <div class="mt-6 bg-gray-50 border border-gray-200 p-4 rounded-lg space-y-3">
                             <div class="flex justify-between items-center text-md"><span class="text-gray-600">Precio referencial:</span><span class="line-through text-gray-500 text-lg">$${product.marketPrice.toLocaleString('es-CL')}</span></div>
-                            <div class="flex justify-between items-center"><span class="font-semibold text-gray-800">Precio de Partida:</span><span class="text-3xl font-bold text-brand-gold">$${product.startPrice.toLocaleString('es-CL')}</span></div>
+                            <div class="flex justify-between items-center"><span class="font-semibold text-gray-800">Precio de Partida:</span><span class="text-3xl font-bold text-brand-pink-accent">$${product.startPrice.toLocaleString('es-CL')}</span></div>
                             <div class="flex justify-between items-center text-green-600 font-semibold border-t pt-3"><span>Ahorro inicial:</span><span>${savingsPercent}% ($${savings.toLocaleString('es-CL')})</span></div>
                         </div>
-                        <div class="mt-6"><button class="w-full btn-gold py-3 rounded-lg text-lg">Notificarme</button><p class="text-center mt-2 text-sm text-gray-500">El remate aún no ha comenzado.</p></div>
+                        <div class="mt-6"><button class="w-full btn-rose py-3 rounded-lg text-lg">Notificarme</button><p class="text-center mt-2 text-sm text-gray-500">El remate aún no ha comenzado.</p></div>
                     </div>
                 </div>`;
             }
@@ -371,20 +454,8 @@
             modal.classList.add('hidden');
         }
 
-        // Observer for fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
         // Initial setup
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
             renderProducts();
             setInterval(updateTimers, 1000);
         });
